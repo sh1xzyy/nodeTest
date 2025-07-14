@@ -3,7 +3,7 @@ import cors from 'cors';
 import { getEnvVar } from './utils/getEnvVar.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
-import { moviesRouter } from './routers/movies-ROUTER.js';
+import { moviesRouter } from './routers/movies-router.js';
 
 export const startServer = () => {
   const app = express();
