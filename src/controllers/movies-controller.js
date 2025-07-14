@@ -9,11 +9,13 @@ import {
 import { parsePaginationParams } from '../utils/parsePaginationParams.js';
 import { parseSortParams } from '../utils/parseSortParams.js';
 import { movieSortFields } from '../db/models/Movie.js';
+import { parseMovieFilters } from '../utils/filter/parseMovieFilters.js';
 
 export const getMoviesController = async (req, res) => {
   const { page, perPage } = parsePaginationParams(req.query);
   const { sortBy, sortOrder } = parseSortParams(req.query, movieSortFields);
-  const data = await getMovies({ page, perPage, sortBy, sortOrder });
+  const filters = parseMovieFilters(req.query);
+  const data = await getMovies({ page, perPage, sortBy, sortOrder, filters });
 
   res.status(200).json({
     status: 200,
