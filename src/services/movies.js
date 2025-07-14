@@ -11,33 +11,21 @@ export const getMovies = async ({
   const skip = (page - 1) * perPage;
   const query = MovieCollection.find();
 
-  console.log('title', filters.title);
-
   if (filters.title) {
     query.where('title').equals(filters.title);
   }
-  console.log('rating', filters.rating);
-
   if (filters.rating) {
     query.where('rating').equals(filters.rating);
   }
-  console.log('country', filters.country);
-
   if (filters.country) {
     query.where('country').equals(filters.country);
   }
-  console.log('ageLimit', filters.ageLimit);
-
   if (filters.ageLimit) {
     query.where('ageLimit').equals(filters.ageLimit);
   }
-  console.log('Ratdirectoring', filters.director);
-
   if (filters.director) {
     query.where('director').equals(filters.director);
   }
-  console.log('genres', filters.genres);
-
   if (filters.genres) {
     query.where('genres').equals(filters.genres);
   }
