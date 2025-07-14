@@ -4,7 +4,7 @@ import {
   COUNTRIES,
   GENRES,
   LANGUAGES,
-} from '../../constants/constants.js';
+} from '../../constants/movies-constants.js';
 import { setUpdateSettings } from './hooks.js';
 
 const movieSchema = new Schema(
@@ -69,5 +69,24 @@ const movieSchema = new Schema(
 );
 
 movieSchema.pre('findByIdAndUpdate', setUpdateSettings);
+
+export const movieSortFields = [
+  '_id',
+  'title',
+  'description',
+  'rating',
+  'genres',
+  'duration',
+  'releaseDate',
+  'director',
+  'cast',
+  'language',
+  'country',
+  'ageLimit',
+  'trailerUrl',
+  'poster',
+  'createdAt',
+  'updatedAt',
+];
 
 export const MovieCollection = model('movie', movieSchema);

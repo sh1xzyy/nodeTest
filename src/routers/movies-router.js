@@ -6,7 +6,7 @@ import {
   getMovieByIdController,
   getMoviesController,
   patchMovieByIdController,
-} from '../controllers/movies.js';
+} from '../controllers/movies-controller.js';
 import { validateBody } from '../utils/validateBody.js';
 import {
   addMovieSchema,

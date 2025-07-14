@@ -4,7 +4,7 @@ import {
   COUNTRIES,
   GENRES,
   LANGUAGES,
-} from '../constants/constants.js';
+} from '../constants/movies-constants.js';
 
 export const addMovieSchema = Joi.object({
   title: Joi.string().required(),

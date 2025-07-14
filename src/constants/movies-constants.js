@@ -43,3 +43,5 @@ export const COUNTRIES = [
   'Canada',
   'Turkey',
 ];
+
+export const sortList = ['asc', 'desc'];

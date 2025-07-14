@@ -6,9 +6,14 @@ import {
   getMovies,
   updateMovieById,
 } from '../services/movies.js';
+import { parsePaginationParams } from '../utils/parsePaginationParams.js';
+import { parseSortParams } from '../utils/parseSortParams.js';
+import { movieSortFields } from '../db/models/Movie.js';
 
 export const getMoviesController = async (req, res) => {
-  const data = await getMovies();
+  const { page, perPage } = parsePaginationParams(req.query);
+  const { sortBy, sortOrder } = parseSortParams(req.query, movieSortFields);
+  const data = await getMovies({ page, perPage, sortBy, sortOrder });
 
   res.status(200).json({
     status: 200,
